@@ -14,6 +14,7 @@ console.log("Hello World");
 /** 2) A first working Express Server */
 app.listen(process.env.PORT || 3000 ); 
 console.log('Express server listening on port ' + (process.env.PORT || 3000));
+
 app.get('/', function(req, res){
   var absolutePath = __dirname + '/views/index.html';
   res.sendFile(absolutePath);
@@ -21,7 +22,7 @@ app.get('/', function(req, res){
 
 
 /** 3) Serve an HTML file */
-
+app.use(express.static(__dirname + '/public'));
 
 /** 4) Serve static assets  */
 
