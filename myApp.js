@@ -15,20 +15,20 @@ console.log("Hello World");
 app.listen(process.env.PORT || 3000 ); 
 console.log('Express server listening on port ' + (process.env.PORT || 3000));
 
+/** Serve an HTML file */
 app.get('/', function(req, res){
   var absolutePath = __dirname + '/views/index.html';
   res.sendFile(absolutePath);
 });
 
 
-/** 3) Serve an HTML file */
+/** 4) Serve static assets  */
 app.use(express.static(__dirname + '/public'));
 
-/** 4) Serve static assets  */
-
-
 /** 5) serve JSON on a specific route */
-
+app.get('/json', function(req, res){
+  res.json({ "message": "Hello json" });
+});
 
 /** 6) Use the .env file to configure the app */
  
